@@ -32,11 +32,9 @@ class MusicLibraryController
         when 'play song' 
           play_song
         when 'exit'
-          exit loop
+          break
       end
-          
-      
-    #end
+    end
   end
   
   def list_songs 
