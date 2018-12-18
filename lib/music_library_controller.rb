@@ -10,17 +10,16 @@ class MusicLibraryController
   
   def call 
     puts "Welcome to your music library!"
-    answer = gets.chomp
+    
     #until answer == 'exit' do
-      puts "To list all of your songs, enter 'list songs'."
-      answer = gets.chomp
+      puts "To list all of your songs, enter 'list songs'.
       puts "To list all of the artists in your library, enter 'list artists'."
       puts "To list all of the genres in your library, enter 'list genres'."
       puts "To list all of the songs by a particular artist, enter 'list artist'."
       puts "To list all of the songs of a particular genre, enter 'list genre'."
       puts "To play a song, enter 'play song'."
       puts "To quit, type 'exit'."
-      answer = gets.chomp
+      
       puts "What would you like to do?"
       answer = gets.chomp
     #end
@@ -69,14 +68,14 @@ class MusicLibraryController
   end
   
   def play_song
-    num = gets.chomp
+    #binding.pry
     puts "Which song number would you like to play?"
+    num = gets.chomp.to_i
+   # binding.pry
     if (1..Song.all.length).include?(num)
       s_a = Song.all.sort_by!{|song| song.name}[num -1]
-      binding.pry
     end
-    
-    puts "Playing #{s_a.name} by #{s_a.artist.name}."
+    puts "Playing #{s_a.name} by #{s_a.artist.name}" if s_a
   end
   
 end
